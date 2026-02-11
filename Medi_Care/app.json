@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Medi_Care",
+    "slug": "Medi_Care",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/img/logo.jpg",
+    "scheme": "medicare",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/img/logo.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medicare.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/img/logo.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.medicare.app"
+    },
+    "web": {
+      "favicon": "./src/assets/img/logo.jpg"
+    }
+  }
+}
