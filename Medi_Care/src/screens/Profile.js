@@ -1,15 +1,15 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const home = () =>{
+const Profile = () =>{
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Medi Care</Text>
-      <Text style={styles.subtitle}>home</Text>
+      <Text style={styles.subtitle}>Profile</Text>
     </View>
   );
 }
 
-export default home
+export default Profile
 
 const styles = StyleSheet.create({
   container: {

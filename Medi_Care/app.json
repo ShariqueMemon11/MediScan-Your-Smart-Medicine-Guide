@@ -4,11 +4,11 @@
     "slug": "Medi_Care",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/img/logo.jpg",
+    "icon": "./src/assets/img/logo.png",
     "scheme": "medicare",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./src/assets/img/logo.jpg",
+      "image": "./src/assets/img/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/img/logo.jpg",
+        "foregroundImage": "./src/assets/img/logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.medicare.app"
     },
     "web": {
-      "favicon": "./src/assets/img/logo.jpg"
+      "favicon": "./src/assets/img/logo.png",
+      "bundler": "metro"
     }
   }
 }

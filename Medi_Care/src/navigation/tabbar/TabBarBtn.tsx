@@ -1,0 +1,80 @@
+import { Pressable, StyleSheet} from 'react-native'
+import { Feather } from '@expo/vector-icons';
+import Animated, { interpolate, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { AnimatedText } from 'react-native-reanimated/src/component/Text';
+import React, { useEffect } from 'react';
+
+// Icon mapping for different routes
+const iconMap: Record<string, React.ComponentType<{ color: string }>> = {
+  Home: (props) => <Feather name="home" size={24} {...props} />,
+  Alert: (props) => <Feather name="bell" size={24} {...props} />,
+  Medicine: (props) => <Feather name="package" size={24} {...props} />,
+  Profile: (props) => <Feather name="user" size={24} {...props} />,
+};
+
+const TabBarBtn = ({onPress,
+  onLongPress,
+  isFocused,
+  routeName,
+  labelText
+}: 
+{onPress:() => void,
+  onLongPress:() => void,
+  isFocused:boolean,
+  routeName:string,
+  color:string,
+  labelText:string
+}) => {
+  const scale = useSharedValue(0);
+  useEffect(()=>{
+    // initialize immediately to avoid initial flicker
+    scale.value = typeof isFocused === 'boolean' ? (isFocused ? 1 : 0) : isFocused
+    // then animate subsequent focus changes
+    scale.value = withSpring(typeof isFocused === 'boolean' ? (isFocused ? 1 :0): isFocused, {duration:350})
+  },[scale,isFocused])
+
+  const animatedTextStyle = useAnimatedStyle(()=>{
+    const opacity = interpolate(scale.value,[0,1],[1,0])
+    return{
+      opacity
+    }
+  }) 
+
+  const animatediconStyle = useAnimatedStyle(()=>{
+    const ScaleValue = interpolate(scale.value,[0,1],[1,1.2])
+    const top = interpolate(scale.value,[0,1],[1,9])
+    return{
+      transform :[{
+        scale: ScaleValue
+        
+      }],
+      top
+    }
+  })
+  return (
+    <Pressable
+      onPress={onPress}
+      onLongPress={onLongPress}
+      style={styles.tabbarItem}
+    >
+    <Animated.View style={animatediconStyle}>
+    {(() => {
+      const Icon = iconMap[routeName] ?? ((p: { color: string }) => <Feather name='circle' size={24} {...p} />);
+      return <Icon color={isFocused ? '#fff' : '#222'} />;
+    })()}
+    </Animated.View>
+    <AnimatedText style={[{ color: isFocused ? '#723FEB' : '#222', fontSize:12},animatedTextStyle]}>{labelText}</AnimatedText>
+    </Pressable>
+  );
+};
+
+export default TabBarBtn
+
+const styles = StyleSheet.create({
+  tabbarItem:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    gap:5,
+  }
+})
