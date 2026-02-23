@@ -119,7 +119,7 @@ export function TabBarLayout1({ state, descriptors, navigation }: BottomTabBarPr
 const styles = StyleSheet.create({
   tabbar:{
     position:'absolute',
-    bottom:20,
+    bottom:8,
     flexDirection:"row",
     justifyContent:'space-between',
     alignItems:"center",

@@ -168,7 +168,6 @@ const Medicine = () => {
         style={{marginLeft:285, marginTop:35}}
         onPress={() => setQrVisible(true)}
         className="bg-green-500 w-16 h-16 rounded-full justify-center items-center shadow-lg"
-        
       >
         <Ionicons name="qr-code-outline" size={28} color="white" />
       </TouchableOpacity>

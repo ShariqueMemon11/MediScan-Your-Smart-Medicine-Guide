@@ -29,7 +29,7 @@ const ReminderModal = ({ visible, onClose, medicineName }) => {
 
           {/* Type Selection */}
           <View style={styles.row}>
-            {["Tablet", "Capsule", "Drops"].map((item) => (
+            {["Tablet", "Syringe", "Drops" , "cream"].map((item) => (
               <TouchableOpacity
                 key={item}
                 onPress={() => setType(item)}
@@ -114,8 +114,9 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     marginBottom: 20,
+    gap:"20"
   },
   typeBtn: {
     backgroundColor: "#eee",
